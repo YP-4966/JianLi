@@ -145,9 +145,55 @@
         @media print {
             .works-section { page-break-inside: avoid; }
         }
+        /* Tab 分栏 */
+        .tab-bar {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            margin: 0 auto 0;
+            max-width: 210mm;
+        }
+        .tab-bar button {
+            flex: 1;
+            padding: 10px 0;
+            font-size: 12pt;
+            font-weight: bold;
+            font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
+            border: 1px solid #bbb;
+            border-bottom: none;
+            background: #e8e8e8;
+            color: #666;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+        .tab-bar button:first-child { border-radius: 6px 0 0 0; }
+        .tab-bar button:last-child { border-radius: 0 6px 0 0; }
+        .tab-bar button.active {
+            background: #fff;
+            color: #000;
+            border-bottom: 1px solid #fff;
+            position: relative;
+            z-index: 1;
+        }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        #resume-panel .page { margin-top: 0; border-radius: 0 0 6px 6px; }
+        @media (max-width: 800px) {
+            .tab-bar button { font-size: 11pt; padding: 8px 0; }
+        }
+        @media print {
+            .tab-bar { display: none; }
+            .tab-content { display: block !important; }
+        }
+
     </style>
 </head>
 <body>
+        <div class="tab-bar">
+            <button class="active" onclick="switchTab('resume')">简历</button>
+            <button onclick="switchTab('works')">作品展示</button>
+        </div>
+    <div id="resume-panel" class="tab-content active">
     <div class="page">
         <!-- 头部 -->
         <div class="header">
@@ -261,8 +307,10 @@
             <li>通过优化视频标题、标签、封面及患者描述引发情感共鸣，增加自然流量，扩大视频号的传播范围满足不同用户需求，账号粉丝数 1 个月内增长至 2 万+；</li>
             <li>热点视频播放量达 200 万+，单条视频涨粉 6000+；</li>
         </ol>
+    </div><!-- end resume-panel -->
 
-
+    <div id="works-panel" class="tab-content">
+    <div class="page">
         <!-- 作品展示 -->
         <div class="section-title works-section">
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="2" y1="7" x2="7" y2="7"/><line x1="2" y1="17" x2="7" y2="17"/><line x1="17" y1="7" x2="22" y2="7"/><line x1="17" y1="17" x2="22" y2="17"/></svg>
@@ -325,7 +373,11 @@
             </div>
         </div>
         <!-- 作品卡片结束，需要更多作品请复制上面的 work-card 结构 -->
+    </div><!-- end page -->
+    </div><!-- end works-panel -->
 
+    <div id="resume-panel-2" class="tab-content">
+    <div class="page">
         <!-- 自我评价 -->
         <div class="section-title">
             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGdSURBVEhL7ZTNSsNAEMebpCm59OAHjUHapq8hePTUtxA89FS8KPgAgr6AB8FH8NaTRxFfwKvkC1pTP0IOQmnSxP/qNJdsS9stKJIfDLszTWd2Zna2VFBQsC4kWufSarU6cRyfKIpikonLZDKxy+XypWVZV2SaydzAuq7XNE27kSSpTaaFSNO0NxqNDn3fH5Ipx8zAhmHsq6p6DSc1Mi0FDjuMouhoMBjck+lvwM0YPW2jXxfYbvxYVibAvThFz3ukZ3ADN5vNF5RKJ1UItMp3HGeH1AxuYNM0U9pyQTVuZVl+YHs4VrB0oe8ynYdt27k4Mq3LEiJ4wCRJkgDBI7IvDDfjRqPxhgy2SBUCB3t3XXeb1AxWphzVatVDFnsQFRILyCsS6IZh+ESufx9uqfF4HFQqlXOcWGicMBnBeDw+wyNyR6YMbuB6vd7H/BmkCoEe99Hj3I1faZxQiR4cPtJeQWYdHDQ3q1PWNk4YIw+X5nkqCPxJPy3MrFJ/IAPR5/IbNuue522SmsHNGB8fsz+QujLMB/NFakHBv6ZU+gKKNuWoVyb/AgAAAABJRU5ErkJggg==" alt="自我评价" class="icon">
@@ -339,6 +391,26 @@
             <li>累计带教新人 20+，快速提升团队整体业务能力。</li>
             <li>持续关注行业前沿技术，善于将 AI 等新工具融入工作流程，在保证内容质量的同时大幅提升工作效率。</li>
         </ol>
-    </div>
+    </div><!-- end page -->
+    </div><!-- end resume-panel-2 -->
+
+    <script>
+    function switchTab(name) {
+        document.querySelectorAll('.tab-content').forEach(function(el) {
+            el.classList.remove('active');
+        });
+        document.querySelectorAll('.tab-bar button').forEach(function(btn) {
+            btn.classList.remove('active');
+        });
+        if (name === 'resume') {
+            document.getElementById('resume-panel').classList.add('active');
+            document.getElementById('resume-panel-2').classList.add('active');
+            document.querySelectorAll('.tab-bar button')[0].classList.add('active');
+        } else {
+            document.getElementById('works-panel').classList.add('active');
+            document.querySelectorAll('.tab-bar button')[1].classList.add('active');
+        }
+    }
+    </script>
 </body>
 </html>
