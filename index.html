@@ -106,6 +106,45 @@
             .project-header { flex-direction: column; gap: 2px; }
             .contact-grid { grid-template-columns: 1fr; }
         }
+        /* 作品展示 */
+        .works-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+        .work-card {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .work-card .video-wrap {
+            width: 100%;
+            aspect-ratio: 9 / 16;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #aaa;
+            font-size: 10.5pt;
+        }
+        .work-card .video-wrap video,
+        .work-card .video-wrap iframe {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .work-card .work-desc {
+            padding: 6px 8px;
+            font-size: 10.5pt;
+        }
+        .work-card .work-desc .label { font-weight: bold; }
+        @media (max-width: 800px) {
+            .works-grid { grid-template-columns: 1fr; }
+        }
+        @media print {
+            .works-section { page-break-inside: avoid; }
+        }
     </style>
 </head>
 <body>
@@ -126,7 +165,7 @@
 
         <!-- 求职意向 -->
         <div class="section-title">
-            <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAeAB4DASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD9U6838T/tBeDvCGu3ej6l/wAJF9ttWCy/Y/Cuq3cWSAfllhtnjbgj7rH06ivCP+Cin7Q3iv4B+G/CP9h2kFzomvNqFjqwkLJIym3CRIkqnMZzK8m5fm3QrzjcD+WE15o0Gg2utyeCNQXSbq5ls4bs6y+ySaJY3kQHZ1VZoyf98UAfut4F+M3hn4japPp+i/219phhM7/2l4e1DT02BgvD3MEascsPlBJ6nGAa7ivwH0HxfafDrUPCvjW38E31sFvBe6XdS6zJ5c0lvKpbGEBIDAA4I61+w37F/wAV/FHxu+AOj+MvFqWw1DULq88l7ZAgaBLh0TIHAIKsvuEBPJNAHmH/AAVQ8IT+Jf2WZdQgj3/2DrNpqMuByI2ElufwzcKT9Pavyq8CfHjx/wDDLRZtI8MeKL3SNMluDdPaQ7WjMpVVL4YHBKooJHXaPSv6FqKAP52PiB8VvF3xUubKfxZr13rcllG0Vt9oI2wqx3MFUAAZPJ45wPSv3M/ZL8G/8ID+zT8NtGMUkEyaJb3M8Uq7WSadfPlUjsQ8jD8K9booA//Z" class="icon">
+            <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAeAB4DASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD9U6838T/tBeDvCGu3ej6l/wAJF9ttWCy/Y/Cuq3cWSAfllhtnjbgj7rH06ivCP+Cin7Q3iv4B+G/CP9h2kFzomvNqFjqwkLJIym3CRIkqnMZzK8m5fm3QrzjcD+WE15o0Gg2utyeCNQXSbq5ls4bs6y+ySaJY3kQHZ1VZoyf98UAfut4F+M3hn4japPp+i/219phhM7/2l4e1DT02BgvD3MEascsPlBJ6nGAa7ivwH0HxfafDrUPCvjW38E31sFvBe6XdS6zJ5c0lvKpbGEBIDAA4I61+w37F/wAV/FHxu+AOj+MvFqWw1DULq88l7ZAgaBLh0TIHAIKsvuEBPJNAHmH/AAVQ8IT+Jf2WZdQgj3/2DrNpqMuByI2ElufwzcKT9Pavyq8CfHjx/wDDLRZtI8MeKL3SNMluDdPaQ7WjMpVVL4YHBKooJHXaPSv6FqKAP52PiB8VvF3xUubKfxZr13rcllG0Vt9oI2wqx3MFUAAZPJ45wPSv3M/ZL8G/8ID+zT8NtGMUkEyaJb3M8Uq7WSadfPlUjsQ8jD8K9booA//Z" alt="求职意向" class="icon">
             <span>求职意向</span>
         </div>
         <hr class="section-line">
@@ -138,7 +177,7 @@
 
         <!-- 职业技能 -->
         <div class="section-title">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKySURBVEhL7ZZLaFNBFIaTm4cphkRJY8hbUIS6qIssxBbtzu6kIK4KQRFBsYit9bGySyntQuumPjYqXdQWwY1uuqiiUBBFQcSFEBJiDASpQknJ22/uHcSSm+QSJbjID8OZe86Z858zZ2YSUxdd/I9QpGwLZikNw+fz7bLb7WOKopyr1WrvUM2kUqkVzWochokDgcA+i8VyiWkc6dC0GiqVynur1TqTSCQe81nWtM3RkjgSiQxS2aTZbD5GlU23F78U4mYymbyH3FCVDdCIWAkGgyPwTFLdIakzDHbgB0nMs36ONnyT6i3YQhwKhXpsNtvJarU6QYV7pVoXIjiBrfg5paoOkBeJtVAqlWaz2ewnqVahEjudzl6PxzPG9DyBeoWuGQj2gUoGY7FYLZfLvSSBmDTpAv8acZ8xnaUNq0IniLdHo9EHGI4LhRFQyR0CnBVzv99/mF3qUw0tQNu+slP7mS7/3mp6eoDMr5HACaRFqnUB8U98zhQKBYVg84wd0qQL/L9AOJ1Opx+Gw+FxOJbqDpfX693jcDiuEjiOwzapbguiJeVy+UYmk1kSn0LHObpC7OW6yvL5/DoL1iBfINM85P0MuzQbAuteFYvFC9ztW1T5Wqg0i0lxu913idejey9dLlc/Wa3hgFAGyHqKZL5Lc0Ownc/Z/qPIRV63OdaMSpMKzpKLtvQR92DDBwGjE9IJFr9lvpsDNEzAcapJSxcV2AUWITyCbRXCR1R6mzUR6aKLlg89AWxkeYq7+IbPIchHITjN+Mi4D+EAPp8he8qYZu7TVjaH4V8YqjeTwAjBX0AYR3WdStc5CyuQTWHbqXkag2HiP0ESQ5A9gewysuHL1QxtEf8LdJSY81GgTSXGRkeJudObXM1h2nOx7uUSICNsZpv8/BuIPwXqi9VFFx2CyfQLQBgVOe10WeMAAAAASUVORK5CYII=" class="icon">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKySURBVEhL7ZZLaFNBFIaTm4cphkRJY8hbUIS6qIssxBbtzu6kIK4KQRFBsYit9bGySyntQuumPjYqXdQWwY1uuqiiUBBFQcSFEBJiDASpQknJ22/uHcSSm+QSJbjID8OZe86Z858zZ2YSUxdd/I9QpGwLZikNw+fz7bLb7WOKopyr1WrvUM2kUqkVzWochokDgcA+i8VyiWkc6dC0GiqVynur1TqTSCQe81nWtM3RkjgSiQxS2aTZbD5GlU23F78U4mYymbyH3FCVDdCIWAkGgyPwTFLdIakzDHbgB0nMs36ONnyT6i3YQhwKhXpsNtvJarU6QYV7pVoXIjiBrfg5paoOkBeJtVAqlWaz2ewnqVahEjudzl6PxzPG9DyBeoWuGQj2gUoGY7FYLZfLvSSBmDTpAv8acZ8xnaUNq0IniLdHo9EHGI4LhRFQyR0CnBVzv99/mF3qUw0tQNu+slP7mS7/3mp6eoDMr5HACaRFqnUB8U98zhQKBYVg84wd0qQL/L9AOJ1Opx+Gw+FxOJbqDpfX693jcDiuEjiOwzapbguiJeVy+UYmk1kSn0LHObpC7OW6yvL5/DoL1iBfINM85P0MuzQbAuteFYvFC9ztW1T5Wqg0i0lxu913idejey9dLlc/Wa3hgFAGyHqKZL5Lc0Ownc/Z/qPIRV63OdaMSpMKzpKLtvQR92DDBwGjE9IJFr9lvpsDNEzAcapJSxcV2AUWITyCbRXCR1R6mzUR6aKLlg89AWxkeYq7+IbPIchHITjN+Mi4D+EAPp8he8qYZu7TVjaH4V8YqjeTwAjBX0AYR3WdStc5CyuQTWHbqXkag2HiP0ESQ5A9gewysuHL1QxtEf8LdJSY81GgTSXGRkeJudObXM1h2nOx7uUSICNsZpv8/BuIPwXqi9VFFx2CyfQLQBgVOe10WeMAAAAASUVORK5CYII=" alt="职业技能" class="icon">
             <span>职业技能</span>
         </div>
         <hr class="section-line">
@@ -158,7 +197,7 @@
 
         <!-- 工作经验 -->
         <div class="section-title">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIiSURBVEhL7Za/S0JRFMf1qRSikYUNYRotQasgSlANhX+BTUFDRDW1VGt/QUFzS0RTrlEQBTYEQm6BUNCgCGHaYiQi/uh7nsd49n7c94aowQ88zz3n3nO/755730Vbnz7/hkQi4QgEAnvBYDATCoU+yJJPcR5iCjtbU9Dk6XT6xuFwLHDom2azmYpGo4vJZLLJIUMsvWWlUtl1Op3r7PYgSdJkPp//xJh7DhkisTUFJl/mpiaifiWWhO12+zQ3NRH1K7Ek3G63n7ipiahfiSXhVqt1zk1NRP1KLAnHYrEDOr3s9kBx6mdXiKVTnc1m2/F4/IxOL9wRPEMo7yNEjyC6ZfZT+lNMXyAej8fv8/nWcXIjeKawn/5qtRp2u90X+Iyc8F8wLFOv14+LxeJbJ0sfoXA4HHaXy+VDTLyKG2uQw3SCGzBePM94kQk5CFD2GvpOCoXCDlzaEk1Eh0sqlUpXmHhDKUrgRR5zuVwNQrcckqFxuN02cYdfwtWd31AYyWso4xy7P3mgH6yuR7gL5VE+uypEK15hqwKCsjBWqCnM6OYbCqPEM9xU0RXGp/WKcmfl4A+M8kUrHmCrxTz9oJyzEBiWI2p080XCp2xVuFyuI/wRuEbzDvs53omq0M03FI5EItuNRmMfZf3gUA9Y6RJEVbcfjac8yueQCrMXiBclpdIuQCwKO4bJR9GmK7MC+47YG9pp2BT2/Q5W82X79PllbLYvIOPJZ7a3XHEAAAAASUVORK5CYII=" class="icon">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIiSURBVEhL7Za/S0JRFMf1qRSikYUNYRotQasgSlANhX+BTUFDRDW1VGt/QUFzS0RTrlEQBTYEQm6BUNCgCGHaYiQi/uh7nsd49n7c94aowQ88zz3n3nO/755730Vbnz7/hkQi4QgEAnvBYDATCoU+yJJPcR5iCjtbU9Dk6XT6xuFwLHDom2azmYpGo4vJZLLJIUMsvWWlUtl1Op3r7PYgSdJkPp//xJh7DhkisTUFJl/mpiaifiWWhO12+zQ3NRH1K7Ek3G63n7ipiahfiSXhVqt1zk1NRP1KLAnHYrEDOr3s9kBx6mdXiKVTnc1m2/F4/IxOL9wRPEMo7yNEjyC6ZfZT+lNMXyAej8fv8/nWcXIjeKawn/5qtRp2u90X+Iyc8F8wLFOv14+LxeJbJ0sfoXA4HHaXy+VDTLyKG2uQw3SCGzBePM94kQk5CFD2GvpOCoXCDlzaEk1Eh0sqlUpXmHhDKUrgRR5zuVwNQrcckqFxuN02cYdfwtWd31AYyWso4xy7P3mgH6yuR7gL5VE+uypEK15hqwKCsjBWqCnM6OYbCqPEM9xU0RXGp/WKcmfl4A+M8kUrHmCrxTz9oJyzEBiWI2p080XCp2xVuFyuI/wRuEbzDvs53omq0M03FI5EItuNRmMfZf3gUA9Y6RJEVbcfjac8yueQCrMXiBclpdIuQCwKO4bJR9GmK7MC+47YG9pp2BT2/Q5W82X79PllbLYvIOPJZ7a3XHEAAAAASUVORK5CYII=" alt="工作经验" class="icon">
             <span>工作经验</span>
         </div>
         <hr class="section-line">
@@ -184,7 +223,7 @@
 
         <!-- 项目经验 -->
         <div class="section-title">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKjSURBVEhL7ZU7aFNhFMfzFJqXJKFJtJgH2MFK1NFBcBKhQxF0EHGpuDgKKjq1ruoiYqcOKo42Uh9URUEo6KKDVBHRBGKEaJK22EcS0jz83ZtDaWruzW0mkfwgfOdxOf97zv2+L6YePf47rLJ2xcDAwLDX633tdruzS0tLHyVsiK6Fw+FwzGw2P7darQGLxXIc8fDg4ODLbDa7Jo/oYpF1yzQajcuIesU1YZ/J5XLvYrFYXEK6dN2x0+n8Rsd76TYmIRN2f61WG6X7wvLy8nsJt8Usq2H8fv9Oh8NxG/NwtVodtdvt+7DHEG1pgok8YApnU6nUbwm1YHjUFDIzxnMul+szBY8pY0b0IV276PII+R/yqArxE8Rnxf0LQ8KhUGhPNBqdpfgEBT0SVkaLa75ks9muYg+TfywpFXxN4Y6jjkQi4yxXENjWjLQHkVylUjnNCwzxItcIfUin04dYK+oDm9DtWI7M2GZRRNbq9XpNXBWeCTD6Z8oUisXikMfjOUq4raiCrjDFDoi5DqKv6MS3sLCwA7vl0kBUrZfP55Nzc3OLalCDTt+4nfA0ywrkWZ+qQYHNtJjJZCbF1UVXGJEWYcbbYDf/jMfjXq7Lg4RONTNNmNAEy0rT02dLo0b4ItNMcS9/53u+Jb9LUkq35fn5+VvidkRTWOmKwmFxlcLXy+XyIy6NGeIuCW/k3urq6i+xO6IpTFf7xVQ6vcvYb/b19b1AtF/C65Cvl0qlG+IaQlOYWuqYEXzCDr7At53hF1WTG2ASWZbxQqHwtRkxhuYFwhm+Q3e7KTyC4DS2chmo8FJpfgm+9xRH6w25hqQMoynMjXWfzXLe5/NNIjCC0BfCU2yqRDKZ1P3nMYKmcDAYDHD1naTb7Yw7wfn8JKkePf5lTKY/zDcFW1P+5uAAAAAASUVORK5CYII=" class="icon">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKjSURBVEhL7ZU7aFNhFMfzFJqXJKFJtJgH2MFK1NFBcBKhQxF0EHGpuDgKKjq1ruoiYqcOKo42Uh9URUEo6KKDVBHRBGKEaJK22EcS0jz83ZtDaWruzW0mkfwgfOdxOf97zv2+L6YePf47rLJ2xcDAwLDX633tdruzS0tLHyVsiK6Fw+FwzGw2P7darQGLxXIc8fDg4ODLbDa7Jo/oYpF1yzQajcuIesU1YZ/J5XLvYrFYXEK6dN2x0+n8Rsd76TYmIRN2f61WG6X7wvLy8nsJt8Usq2H8fv9Oh8NxG/NwtVodtdvt+7DHEG1pgok8YApnU6nUbwm1YHjUFDIzxnMul+szBY8pY0b0IV276PII+R/yqArxE8Rnxf0LQ8KhUGhPNBqdpfgEBT0SVkaLa75ks9muYg+TfywpFXxN4Y6jjkQi4yxXENjWjLQHkVylUjnNCwzxItcIfUin04dYK+oDm9DtWI7M2GZRRNbq9XpNXBWeCTD6Z8oUisXikMfjOUq4raiCrjDFDoi5DqKv6MS3sLCwA7vl0kBUrZfP55Nzc3OLalCDTt+4nfA0ywrkWZ+qQYHNtJjJZCbF1UVXGJEWYcbbYDf/jMfjXq7Lg4RONTNNmNAEy0rT02dLo0b4ItNMcS9/53u+Jb9LUkq35fn5+VvidkRTWOmKwmFxlcLXy+XyIy6NGeIuCW/k3urq6i+xO6IpTFf7xVQ6vcvYb/b19b1AtF/C65Cvl0qlG+IaQlOYWuqYEXzCDr7At53hF1WTG2ASWZbxQqHwtRkxhuYFwhm+Q3e7KTyC4DS2chmo8FJpfgm+9xRH6w25hqQMoynMjXWfzXLe5/NNIjCC0BfCU2yqRDKZ1P3nMYKmcDAYDHD1naTb7Yw7wfn8JKkePf5lTKY/zDcFW1P+5uAAAAAASUVORK5CYII=" alt="项目经验" class="icon">
             <span>项目经验</span>
         </div>
         <hr class="section-line">
@@ -223,9 +262,73 @@
             <li>热点视频播放量达 200 万+，单条视频涨粉 6000+；</li>
         </ol>
 
+
+        <!-- 作品展示 -->
+        <div class="section-title works-section">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="2" y1="7" x2="7" y2="7"/><line x1="2" y1="17" x2="7" y2="17"/><line x1="17" y1="7" x2="22" y2="7"/><line x1="17" y1="17" x2="22" y2="17"/></svg>
+            <span>作品展示</span>
+        </div>
+        <hr class="section-line">
+        <div class="works-grid">
+            <!-- 示例作品卡片 - 复制以下结构并替换视频源和描述 -->
+            <div class="work-card">
+                <div class="video-wrap">
+                    <!-- 替换 src 为你的视频文件路径，例如 videos/work1.mp4 -->
+                    <video controls preload="metadata" poster="">
+                        <source src="videos/work1.mp4" type="video/mp4">
+                        您的浏览器不支持视频播放。
+                    </video>
+                </div>
+                <div class="work-desc">
+                    <span class="label">项目：</span>巨量信息流视频<br>
+                    <span class="label">成果：</span>单条视频消耗 100w+
+                </div>
+            </div>
+            <div class="work-card">
+                <div class="video-wrap">
+                    <!-- 替换 src 为你的视频文件路径，例如 videos/work2.mp4 -->
+                    <video controls preload="metadata" poster="">
+                        <source src="videos/work2.mp4" type="video/mp4">
+                        您的浏览器不支持视频播放。
+                    </video>
+                </div>
+                <div class="work-desc">
+                    <span class="label">项目：</span>抖音短视频剪辑<br>
+                    <span class="label">成果：</span>单条视频播放量 200w+
+                </div>
+            </div>
+            <div class="work-card">
+                <div class="video-wrap">
+                    <!-- 替换 src 为你的视频文件路径，例如 videos/work3.mp4 -->
+                    <video controls preload="metadata" poster="">
+                        <source src="videos/work3.mp4" type="video/mp4">
+                        您的浏览器不支持视频播放。
+                    </video>
+                </div>
+                <div class="work-desc">
+                    <span class="label">项目：</span>视频号内容运营<br>
+                    <span class="label">成果：</span>单条视频涨粉 6000+
+                </div>
+            </div>
+            <div class="work-card">
+                <div class="video-wrap">
+                    <!-- 替换 src 为你的视频文件路径，例如 videos/work4.mp4 -->
+                    <video controls preload="metadata" poster="">
+                        <source src="videos/work4.mp4" type="video/mp4">
+                        您的浏览器不支持视频播放。
+                    </video>
+                </div>
+                <div class="work-desc">
+                    <span class="label">项目：</span>AI 创意视频<br>
+                    <span class="label">成果：</span>前 5 秒留存率显著提升
+                </div>
+            </div>
+        </div>
+        <!-- 作品卡片结束，需要更多作品请复制上面的 work-card 结构 -->
+
         <!-- 自我评价 -->
         <div class="section-title">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGdSURBVEhL7ZTNSsNAEMebpCm59OAHjUHapq8hePTUtxA89FS8KPgAgr6AB8FH8NaTRxFfwKvkC1pTP0IOQmnSxP/qNJdsS9stKJIfDLszTWd2Zna2VFBQsC4kWufSarU6cRyfKIpikonLZDKxy+XypWVZV2SaydzAuq7XNE27kSSpTaaFSNO0NxqNDn3fH5Ipx8zAhmHsq6p6DSc1Mi0FDjuMouhoMBjck+lvwM0YPW2jXxfYbvxYVibAvThFz3ukZ3ADN5vNF5RKJ1UItMp3HGeH1AxuYNM0U9pyQTVuZVl+YHs4VrB0oe8ynYdt27k4Mq3LEiJ4wCRJkgDBI7IvDDfjRqPxhgy2SBUCB3t3XXeb1AxWphzVatVDFnsQFRILyCsS6IZh+ESufx9uqfF4HFQqlXOcWGicMBnBeDw+wyNyR6YMbuB6vd7H/BmkCoEe99Hj3I1faZxQiR4cPtJeQWYdHDQ3q1PWNk4YIw+X5nkqCPxJPy3MrFJ/IAPR5/IbNuue522SmsHNGB8fsz+QujLMB/NFakHBv6ZU+gKKNuWoVyb/AgAAAABJRU5ErkJggg==" class="icon">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGdSURBVEhL7ZTNSsNAEMebpCm59OAHjUHapq8hePTUtxA89FS8KPgAgr6AB8FH8NaTRxFfwKvkC1pTP0IOQmnSxP/qNJdsS9stKJIfDLszTWd2Zna2VFBQsC4kWufSarU6cRyfKIpikonLZDKxy+XypWVZV2SaydzAuq7XNE27kSSpTaaFSNO0NxqNDn3fH5Ipx8zAhmHsq6p6DSc1Mi0FDjuMouhoMBjck+lvwM0YPW2jXxfYbvxYVibAvThFz3ukZ3ADN5vNF5RKJ1UItMp3HGeH1AxuYNM0U9pyQTVuZVl+YHs4VrB0oe8ynYdt27k4Mq3LEiJ4wCRJkgDBI7IvDDfjRqPxhgy2SBUCB3t3XXeb1AxWphzVatVDFnsQFRILyCsS6IZh+ESufx9uqfF4HFQqlXOcWGicMBnBeDw+wyNyR6YMbuB6vd7H/BmkCoEe99Hj3I1faZxQiR4cPtJeQWYdHDQ3q1PWNk4YIw+X5nkqCPxJPy3MrFJ/IAPR5/IbNuue522SmsHNGB8fsz+QujLMB/NFakHBv6ZU+gKKNuWoVyb/AgAAAABJRU5ErkJggg==" alt="自我评价" class="icon">
             <span>自我评价</span>
         </div>
         <hr class="section-line">
