@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>杨鹏 - AI/电商运营简历</title>
+    <title>杨鹏 - 简历</title>
     <style>
         * {
             margin: 0;
@@ -12,473 +12,223 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+            font-family: "Microsoft YaHei", "SimSun", "宋体", sans-serif;
+            background: #e8e8e8;
             padding: 20px;
+            color: #000;
         }
 
-        .container {
-            max-width: 900px;
+        .page {
+            width: 210mm;
+            min-height: 297mm;
             margin: 0 auto;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            overflow: hidden;
+            background: #fff;
+            padding: 25mm 20mm;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+            font-size: 10.5pt;
+            line-height: 1.8;
         }
 
-        .header {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: white;
-            padding: 40px;
-            text-align: center;
+        .title-line {
+            font-size: 10.5pt;
+            margin-bottom: 6px;
         }
 
-        .header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            font-weight: 300;
+        .title-line .label {
+            font-weight: bold;
         }
 
-        .header .subtitle {
-            font-size: 1.2em;
-            opacity: 0.9;
-            margin-bottom: 20px;
-        }
-
-        .header .contact-info {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            font-size: 0.95em;
-        }
-
-        .header .contact-info span {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .content {
-            padding: 40px;
-        }
-
-        .section {
-            margin-bottom: 35px;
-        }
-
-        .section-title {
-            font-size: 1.4em;
-            color: #1a1a2e;
-            border-bottom: 3px solid #667eea;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+        .section-gap {
+            height: 12px;
         }
 
         .skill-item {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
-            border-left: 4px solid #667eea;
+            margin-bottom: 2px;
+            text-indent: 0;
         }
 
-        .skill-item h4 {
-            color: #1a1a2e;
-            margin-bottom: 10px;
-            font-size: 1em;
+        .section-date {
+            margin-top: 16px;
+            margin-bottom: 2px;
         }
 
-        .skill-item p {
-            font-size: 0.9em;
-            color: #555;
+        .company-line {
+            margin-bottom: 2px;
         }
 
-        .experience-item {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            border-left: 4px solid #764ba2;
+        .company-line .label {
+            font-weight: bold;
         }
 
-        .experience-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 15px;
-            flex-wrap: wrap;
+        .duty-label {
+            font-weight: bold;
+            margin-bottom: 2px;
         }
 
-        .company-info h3 {
-            color: #1a1a2e;
-            font-size: 1.2em;
-            margin-bottom: 5px;
+        .duty-item {
+            margin-bottom: 2px;
         }
 
-        .company-info .position {
-            color: #667eea;
-            font-weight: 600;
+        .project-header {
+            margin-top: 16px;
+            margin-bottom: 2px;
         }
 
-        .date {
-            background: #667eea;
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.85em;
-            font-weight: 500;
+        .project-header .label {
+            font-weight: bold;
         }
 
-        .responsibilities {
-            list-style: none;
-            padding: 0;
+        .project-content-label {
+            font-weight: bold;
+            margin-bottom: 2px;
         }
 
-        .responsibilities li {
-            padding: 8px 0;
+        .project-list-item {
+            margin-bottom: 2px;
             padding-left: 20px;
-            position: relative;
-            font-size: 0.95em;
-            color: #444;
         }
 
-        .responsibilities li:before {
-            content: "•";
-            color: #667eea;
-            font-weight: bold;
-            position: absolute;
-            left: 0;
+        .eval-item {
+            margin-bottom: 2px;
+            padding-left: 20px;
         }
 
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+        .divider {
+            height: 1px;
+            background: #ccc;
+            margin: 12px 0;
         }
 
-        .project-card {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: white;
-            padding: 25px;
-            border-radius: 10px;
-            transition: transform 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .project-card h4 {
-            color: #667eea;
-            margin-bottom: 10px;
-            font-size: 1.1em;
-        }
-
-        .project-card .role {
-            font-size: 0.85em;
-            opacity: 0.8;
-            margin-bottom: 15px;
-            display: inline-block;
-            background: rgba(102, 126, 234, 0.3);
-            padding: 3px 10px;
-            border-radius: 15px;
-        }
-
-        .project-card ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .project-card li {
-            padding: 5px 0;
-            padding-left: 15px;
-            position: relative;
-            font-size: 0.9em;
-            opacity: 0.9;
-        }
-
-        .project-card li:before {
-            content: "▸";
-            color: #667eea;
-            position: absolute;
-            left: 0;
-        }
-
-        .self-evaluation {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            padding: 30px;
-            border-radius: 10px;
-        }
-
-        .self-evaluation h3 {
-            color: #1a1a2e;
-            margin-bottom: 15px;
-            font-size: 1.1em;
-        }
-
-        .self-evaluation .intro {
-            font-size: 1em;
-            color: #555;
-            margin-bottom: 20px;
-            font-style: italic;
-        }
-
-        .advantages-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .advantages-list li {
-            padding: 12px 0;
-            padding-left: 25px;
-            position: relative;
-            font-size: 0.95em;
-            color: #444;
-            border-bottom: 1px solid #dee2e6;
-        }
-
-        .advantages-list li:last-child {
-            border-bottom: none;
-        }
-
-        .advantages-list li:before {
-            content: "✓";
-            color: #28a745;
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-
-        .advantages-list li strong {
-            color: #1a1a2e;
-        }
-
-        .footer {
-            background: #1a1a2e;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            font-size: 0.85em;
-            opacity: 0.9;
-        }
-
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2em;
+        @media print {
+            body {
+                background: #fff;
+                padding: 0;
             }
-            
-            .header .contact-info {
-                flex-direction: column;
-                gap: 10px;
-            }
-            
-            .content {
-                padding: 25px;
-            }
-            
-            .experience-header {
-                flex-direction: column;
-                gap: 10px;
-            }
-            
-            .date {
-                align-self: flex-start;
+            .page {
+                box-shadow: none;
+                padding: 15mm 20mm;
+                width: 100%;
+                min-height: auto;
             }
         }
 
-        .highlight {
-            color: #667eea;
-            font-weight: 600;
-        }
-
-        .stats {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin: 20px 0;
-            padding: 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 10px;
-        }
-
-        .stat-item {
-            text-align: center;
-            color: white;
-        }
-
-        .stat-item .number {
-            font-size: 2em;
-            font-weight: bold;
-            display: block;
-        }
-
-        .stat-item .label {
-            font-size: 0.85em;
-            opacity: 0.9;
+        @media (max-width: 800px) {
+            body {
+                padding: 10px;
+            }
+            .page {
+                width: 100%;
+                padding: 15px;
+                min-height: auto;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-            <h1>杨鹏</h1>
-            <div class="subtitle">AI/电商运营专家</div>
-            <div class="contact-info">
-                <span>📞 18939634966</span>
-                <span>📧 yangpeng@example.com</span>
-                <span>📍 郑州</span>
-                <span>⏰ 即时到岗</span>
-            </div>
-        </header>
+    <div class="page">
+        <!-- 基本信息行 -->
+        <div class="title-line">
+            <span class="label">求职岗位：</span>AI、电商&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="label">到岗时间：</span>即时&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="label">期望薪资：</span>面议
+        </div>
 
-        <main class="content">
-            <section class="section">
-                <h2 class="section-title">专业技能</h2>
-                <div class="skills-grid">
-                    <div class="skill-item">
-                        <h4>视频剪辑与制作</h4>
-                        <p>精通剪映、PR等工具，可独立完成视频剪辑、调色、特效、字幕等全流程后期制作</p>
-                    </div>
-                    <div class="skill-item">
-                        <h4>平台运营与规则</h4>
-                        <p>精通抖音、视频号、快手、小红书等平台自然流运营规则，熟悉巨量平台审核机制</p>
-                    </div>
-                    <div class="skill-item">
-                        <h4>AI工具应用</h4>
-                        <p>熟练使用各类数字人、AI生图/生视频软件，掌握Gemini、ChatGPT、Deepseek等AI工具</p>
-                    </div>
-                    <div class="skill-item">
-                        <h4>Agent与工作流</h4>
-                        <p>熟练使用各类Agent（Codex、Deepseek harness、WorkBuddy等），能够编写skill和prompt</p>
-                    </div>
-                </div>
-            </section>
+        <div class="section-gap"></div>
+        <div class="divider"></div>
+        <div class="section-gap"></div>
 
-            <section class="section">
-                <h2 class="section-title">工作经历</h2>
-                
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <div class="company-info">
-                            <h3>郑州汇客</h3>
-                            <span class="position">信息流剪辑</span>
-                        </div>
-                        <span class="date">2025.7 - 至今</span>
-                    </div>
-                    <ul class="responsibilities">
-                        <li>精通剪映等工具，可独立完成视频剪辑、调色、特效、字幕等全流程后期制作</li>
-                        <li>熟悉巨量引擎（抖音/千川）平台规则、流量机制与审核标准，能针对不同品类视频调整风格</li>
-                        <li>具备短视频脚本撰写与口播文案创作能力，擅长结合产品卖点与用户痛点产出高转化内容</li>
-                        <li>熟练运用AI工具生成视频开头与创意素材，提升视频内容生产效率与差异化竞争力</li>
-                    </ul>
-                </div>
+        <!-- 技能清单 -->
+        <div class="skill-item">精通"剪映、pr"；</div>
+        <div class="skill-item">精通抖音、视频号、快手、小红书等，的自然流运营规则和机制，能够根据不同平台特点制定相应的视频内容和推广方案；</div>
+        <div class="skill-item">精通巨量平台规则，（如：百货品类、医疗品类、美妆品类...能根据不同品牌信息流视频去规避平台规则审核）；</div>
+        <div class="skill-item">熟练掌握各类数字人使用，（如：即创数字人、妙思数字人…）；</div>
+        <div class="skill-item">熟练掌握各类主流AI生图、生视频软件，（如：即梦、可灵、liblib、小云雀…）；</div>
+        <div class="skill-item">熟练掌握各类主流AI软件，（如：Gemini、ChatGPT、Deepseek、豆包...）；</div>
+        <div class="skill-item">熟练使用各类Agent，（如：Codex、Deepseek harness、WorkBuddy、TraeWork...）;</div>
+        <div class="skill-item">熟练编写修改prompt做ai视频，自己能够编写skill，贴合工作流程节省时间；</div>
+        <div class="skill-item">能够在各大网站，例如GitHub去寻找可复用工作流，融入工作使用提高效率；</div>
+        <div class="skill-item">能够使用AI编写基础前端页面；</div>
+        <div class="skill-item">熟练使用 蚁小二、小火花、自然流获客工具；</div>
 
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <div class="company-info">
-                            <h3>河南易筋经研究院</h3>
-                            <span class="position">新媒体剪辑运营</span>
-                        </div>
-                        <span class="date">2024.1 - 2025.6</span>
-                    </div>
-                    <ul class="responsibilities">
-                        <li>管理并运营多个社交媒体平台（抖音、快手、微信视频号等），提升用户粘性和品牌好感度</li>
-                        <li>通过数据分析工具监控内容表现，生成报告并提出优化建议，提升用户参与度和转化率</li>
-                        <li>制定并执行用户增长策略，管理并运营品牌社群，提升用户活跃度和忠诚度</li>
-                    </ul>
-                </div>
-            </section>
+        <div class="section-gap"></div>
+        <div class="divider"></div>
+        <div class="section-gap"></div>
 
-            <section class="section">
-                <h2 class="section-title">核心数据成果</h2>
-                <div class="stats">
-                    <div class="stat-item">
-                        <span class="number">200万+</span>
-                        <span class="label">单条视频最高播放量</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="number">100万+</span>
-                        <span class="label">单人单视频消耗</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="number">2万+</span>
-                        <span class="label">粉丝增长</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="number">20+</span>
-                        <span class="label">带教新人数量</span>
-                    </div>
-                </div>
-            </section>
+        <!-- 工作经历1 -->
+        <div class="section-date">2024.1-2025.6</div>
+        <div class="company-line">
+            <span class="label">所在公司：</span>河南易筋经研究院&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="label">工作岗位：</span>新媒体剪辑运营
+        </div>
+        <div class="duty-label">工作职责：</div>
+        <div class="duty-item">管理并运营多个社交媒体平台（如抖音、快手、微信视频号等）制定并执行策略，与粉丝互动，回复评论和私信，提升用户粘性和品牌好感度；</div>
+        <div class="duty-item">通过数据分析工具监控内容表现，生成报告并提出优化建议，根据数据反馈调整内容策略，提升用户参与度和转化率；</div>
+        <div class="duty-item">制定并执行用户增长策略，通过内容、活动等方式吸引新用户制定并执行用户增长策略，管理并运营品牌社群，提升用户活跃度和忠诚度；</div>
 
-            <section class="section">
-                <h2 class="section-title">项目经验</h2>
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <h4>抖音短视频内容剪辑与运营</h4>
-                        <span class="role">剪辑运营</span>
-                        <ul>
-                            <li>剪辑发布短视频，单条视频最高播放量达200万+，粉丝增长2w+</li>
-                            <li>通过数据分析优化内容结构，视频平均完播率提升20%</li>
-                            <li>通过精准标签和话题优化，提升视频平均曝光量、品牌搜索量</li>
-                        </ul>
-                    </div>
-                    <div class="project-card">
-                        <h4>视频号内容剪辑与运营</h4>
-                        <span class="role">剪辑运营</span>
-                        <ul>
-                            <li>单条视频为引流带来500+意向客户咨询</li>
-                            <li>账号粉丝数1个月内增长至2万+</li>
-                            <li>热点视频播放量达200万+，单条视频涨粉6000+</li>
-                        </ul>
-                    </div>
-                    <div class="project-card">
-                        <h4>巨量信息流</h4>
-                        <span class="role">剪辑/视频文案编写/AI视频制作</span>
-                        <ul>
-                            <li>单人单视频消耗100w+</li>
-                            <li>独立编写AI视频prompt，制作创意视频开头</li>
-                            <li>负责新人带教与培训，累计带教新人20+</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
+        <div class="section-gap"></div>
 
-            <section class="section">
-                <h2 class="section-title">自我评价</h2>
-                <div class="self-evaluation">
-                    <p class="intro">具备3年新媒体运营与短视频制作经验，擅长AI工具赋能内容创作，实现高效产出与创新突破。</p>
-                    
-                    <h4>核心优势：</h4>
-                    <ul class="advantages-list">
-                        <li><strong>AI工具深度应用：</strong>熟练运用各类AI工具（数字人、AI生图/生视频、Agent等），能够独立编写prompt和skill，提升内容生产效率30%以上</li>
-                        <li><strong>数据驱动运营：</strong>通过数据分析优化内容策略，实现单条视频播放量200万+、消耗100万+的业绩，平均完播率提升20%</li>
-                        <li><strong>全链路能力覆盖：</strong>从脚本策划、视频剪辑到平台运营、数据分析，具备完整的内容生产与商业化闭环能力</li>
-                        <li><strong>多平台运营经验：</strong>精通抖音、视频号、快手等平台规则与流量机制，能够针对不同平台特点制定差异化内容策略</li>
-                        <li><strong>团队赋能与带教：</strong>累计带教新人20+，快速提升团队整体业务能力，具备良好的知识传递与团队协作能力</li>
-                    </ul>
-                    
-                    <p style="margin-top: 20px; font-size: 0.9em; color: #666;">
-                        持续关注行业前沿技术，善于将AI等新工具融入工作流程，在保证内容质量的同时大幅提升工作效率。
-                    </p>
-                </div>
-            </section>
-        </main>
+        <!-- 工作经历2 -->
+        <div class="section-date">2025.7-至今</div>
+        <div class="company-line">
+            <span class="label">所在公司：</span>郑州汇客&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="label">工作岗位：</span>信息流剪辑
+        </div>
+        <div class="duty-label">工作职责：</div>
+        <div class="duty-item">精通剪映等工具，可独立完成视频剪辑、调色、特效、字幕等全流程后期制作；</div>
+        <div class="duty-item">熟悉巨量引擎（抖音/千川）平台规则、流量机制与审核标准，不同品类视频，能针对性调整视频风格；</div>
+        <div class="duty-item">具备短视频脚本撰写与口播文案创作能力，擅长结合产品产品卖点与用户痛点产出高转化内容；</div>
+        <div class="duty-item">熟练运用AI工具生成视频开头与创意素材，提升视频内容生产效率与差异化竞争力；</div>
 
-        <footer class="footer">
-            <p>© 2025 杨鹏 - AI/电商运营简历 | 期望薪资：面议</p>
-        </footer>
+        <div class="section-gap"></div>
+        <div class="divider"></div>
+        <div class="section-gap"></div>
+
+        <!-- 项目经验1 -->
+        <div class="project-header">
+            <span class="label">项目名称：</span>抖音短视频内容剪辑与内容&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="label">项目角色：</span>剪辑运营
+        </div>
+        <div class="project-content-label">项目内容:</div>
+        <div class="project-list-item">剪辑发布短视频，单条视频最高播放量达200万+，粉丝增长2w+，账号月均互动率提升15%；</div>
+        <div class="project-list-item">通过数据分析优化内容结构，视频平均完播率提升20%，用户互动率增长10%；</div>
+        <div class="project-list-item">通过精准标签和话题优化，提升视频平均曝光量、品牌搜索量；</div>
+
+        <div class="section-gap"></div>
+
+        <!-- 项目经验2 -->
+        <div class="project-header">
+            <span class="label">项目名称：</span>视频号内容剪辑与内容&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="label">项目角色：</span>剪辑运营
+        </div>
+        <div class="project-content-label">项目内容:</div>
+        <div class="project-list-item">通过视频号评论区、私信等功能与用户互动，优化内容策略、单条视频为引流带来500+意向客户咨询；</div>
+        <div class="project-list-item">通过优化视频标题、标签、封面及患者描述引发情感共鸣，增加自然流量，扩大视频号的传播范围满足不同用户需求，账号粉丝数1个月内增长至2万+；</div>
+        <div class="project-list-item">热点视频播放量达200万+，单条视频涨粉6000+；</div>
+
+        <div class="section-gap"></div>
+
+        <!-- 项目经验3 -->
+        <div class="project-header">
+            <span class="label">项目名称：</span>巨量信息流&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="label">项目角色：</span>剪辑/视频文案编写/AI视频制作
+        </div>
+        <div class="project-content-label">项目内容:</div>
+        <div class="project-list-item">单人单视频消耗100w+；</div>
+        <div class="project-list-item">独立编写AI视频prompt，制作创意视频开头，有效提升前5-20秒留存率，增强内容竞争力；</div>
+        <div class="project-list-item">针对不同品类产品灵活调整视频风格与叙事结构，深度熟悉巨量平台审核规则，精准规避风险；</div>
+        <div class="project-list-item">负责新人带教与培训，累计带教新人20+，快速提升团队整体业务能力。</div>
+
+        <div class="section-gap"></div>
+        <div class="divider"></div>
+        <div class="section-gap"></div>
+
+        <!-- 自我评价 -->
+        <div class="eval-item">1. 能够在紧张的项目周期内合理安排时间，确保视频按时高质量交付，具备较强的抗压能力和多任务处理能力；</div>
+        <div class="eval-item">2. 保持对新媒体行业动态的关注，不断学习新的剪辑技巧和运营策略，能够将新技术和新趋势应用到实际工作中，提升内容竞争力；</div>
+        <div class="eval-item">3. 以用户需求为核心，能够通过用户反馈和数据分析，不断优化视频内容和剪辑风格，提升用户体验和粘性；</div>
+        <div class="eval-item">4. 在剪辑和运营过程中，能够准确把握品牌调性，确保视频内容与品牌形象一致，提升品牌认知度和用户忠诚度；</div>
+        <div class="eval-item">5. 具备良好的视觉审美能力，能够通过色彩、构图、转场等元素的巧妙运用，提升视频的视觉吸引力，增强用户的观看体验；</div>
+        <div class="eval-item">6. 能够根据不同平台的视频格式、时长要求和用户习惯，灵活调整视频内容，确保视频在各个平台都能获得最佳效果。</div>
     </div>
 </body>
 </html>
