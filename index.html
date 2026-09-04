@@ -185,6 +185,20 @@
             color: #666;
             margin-top: 4px;
         }
+        /* 禁止视频下载 - 隐藏所有浏览器的下载按钮 */
+        .video-wrap video::-webkit-media-controls-download-button {
+            display: none !important;
+            -webkit-appearance: none;
+        }
+        .video-wrap video::-webkit-media-controls-enclosure {
+            overflow: hidden;
+        }
+        .video-wrap video::-internal-media-controls-download-button {
+            display: none !important;
+        }
+        .video-wrap video::-webkit-media-controls-panel {
+            width: calc(100% - 30px);
+        }
 
         /* Tab 分栏 */
         .tab-bar {
@@ -431,6 +445,32 @@
             document.querySelectorAll('.tab-bar button')[1].classList.add('active');
         }
     }
+    /* 禁止视频下载 */
+    (function() {
+        // 阻止键盘下载快捷键 (Ctrl/Cmd+S, Ctrl/Cmd+Shift+S)
+        document.addEventListener('keydown', function(e) {
+            if ((e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'S')) {
+                e.preventDefault();
+            }
+        }, false);
+        // 阻止视频拖拽到本地
+        document.addEventListener('dragstart', function(e) {
+            if (e.target && e.target.tagName === 'VIDEO') {
+                e.preventDefault();
+            }
+        }, false);
+        // 阻止开发者工具外的直接保存快捷键 (Ctrl/Cmd+Shift+S)
+        document.addEventListener('keydown', function(e) {
+            if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 's' || e.key === 'S')) {
+                e.preventDefault();
+            }
+        }, false);
+        // 禁用画中画下载入口
+        document.querySelectorAll('.video-wrap video').forEach(function(v) {
+            v.setAttribute('disablepictureinpicture', '');
+            v.setAttribute('disableRemotePlayback', '');
+        });
+    })();
     </script>
 </body>
 </html>
