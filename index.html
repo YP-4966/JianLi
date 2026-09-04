@@ -199,6 +199,35 @@
         .video-wrap video::-webkit-media-controls-panel {
             width: calc(100% - 30px);
         }
+        /* 移动端自定义播放按钮（隐藏原生控件和下载按钮） */
+        .play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.55);
+            border: none;
+            cursor: pointer;
+            z-index: 2;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+        .play-btn::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 10px 0 10px 18px;
+            border-color: transparent transparent transparent #fff;
+            margin-left: 4px;
+        }
+        @media (max-width: 768px) {
+            .play-btn { display: flex; }
+        }
 
         /* Tab 分栏 */
         .tab-bar {
@@ -469,6 +498,40 @@
         document.querySelectorAll('.video-wrap video').forEach(function(v) {
             v.setAttribute('disablepictureinpicture', '');
             v.setAttribute('disableRemotePlayback', '');
+        });
+    })();
+    /* 移动端自定义播放控制（隐藏原生控件和下载按钮） */
+    (function() {
+        var isMobile = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent) || window.innerWidth <= 768;
+        if (!isMobile) return;
+        document.querySelectorAll('.video-wrap video').forEach(function(video) {
+            // 移除原生控件（含下载按钮）
+            video.removeAttribute('controls');
+            video.removeAttribute('controlsList');
+            video.setAttribute('playsinline', '');
+            video.setAttribute('webkit-playsinline', '');
+            video.setAttribute('x5-playsinline', '');
+            // 创建自定义播放按钮
+            var wrap = video.parentNode;
+            var btn = document.createElement('div');
+            btn.className = 'play-btn';
+            wrap.appendChild(btn);
+            function toggle() {
+                if (video.paused) {
+                    video.play();
+                } else {
+                    video.pause();
+                }
+            }
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                toggle();
+            });
+            video.addEventListener('click', toggle);
+            video.addEventListener('play', function() { btn.style.display = 'none'; });
+            video.addEventListener('pause', function() { btn.style.display = 'flex'; });
+            video.addEventListener('ended', function() { btn.style.display = 'flex'; });
         });
     })();
     </script>
