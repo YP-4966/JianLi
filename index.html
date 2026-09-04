@@ -412,9 +412,7 @@
             <!-- 作品卡片 1 -->
             <div class="work-card">
                 <div class="video-wrap">
-                    <video controls preload="none" poster="images/巨量信息流_cover.jpg" controlsList="nodownload" oncontextmenu="return false;">
-                        <source src="images/巨量信息流.mp4" type="video/mp4">
-                    </video>
+                    <video controls preload="none" poster="images/巨量信息流_cover.jpg" controlsList="nodownload" oncontextmenu="return false;" data-src="images/巨量信息流.mp4"></video>
                 </div>
                 <div class="work-desc">
                     <span class="label">巨量信息流视频</span>
@@ -423,9 +421,7 @@
             <!-- 作品卡片 2 -->
             <div class="work-card">
                 <div class="video-wrap">
-                    <video controls preload="none" poster="images/1_compressed_cover.jpg" controlsList="nodownload" oncontextmenu="return false;">
-                        <source src="images/1_compressed.mp4" type="video/mp4">
-                    </video>
+                    <video controls preload="none" poster="images/1_compressed_cover.jpg" controlsList="nodownload" oncontextmenu="return false;" data-src="images/1_compressed.mp4"></video>
                 </div>
                 <div class="work-desc">
                     <span class="label">巨量信息流视频</span>
@@ -434,9 +430,7 @@
             <!-- 作品卡片 3 -->
             <div class="work-card">
                 <div class="video-wrap">
-                    <video controls preload="none" poster="images/2_compressed_cover.jpg" controlsList="nodownload" oncontextmenu="return false;">
-                        <source src="images/2_compressed.mp4" type="video/mp4">
-                    </video>
+                    <video controls preload="none" poster="images/2_compressed_cover.jpg" controlsList="nodownload" oncontextmenu="return false;" data-src="images/2_compressed.mp4"></video>
                 </div>
                 <div class="work-desc">
                     <span class="label">巨量信息流视频</span>
@@ -445,9 +439,7 @@
             <!-- 作品卡片 4 -->
             <div class="work-card">
                 <div class="video-wrap">
-                    <video controls preload="none" poster="images/3_compressed_cover.jpg" controlsList="nodownload" oncontextmenu="return false;">
-                        <source src="images/3_compressed.mp4" type="video/mp4">
-                    </video>
+                    <video controls preload="none" poster="images/3_compressed_cover.jpg" controlsList="nodownload" oncontextmenu="return false;" data-src="images/3_compressed.mp4"></video>
                 </div>
                 <div class="work-desc">
                     <span class="label">巨量信息流视频</span>
@@ -474,6 +466,21 @@
             document.querySelectorAll('.tab-bar button')[1].classList.add('active');
         }
     }
+    /* 动态注入视频地址：避免浏览器把静态 source 识别为可下载资源 */
+    (function() {
+        function loadVideos() {
+            document.querySelectorAll('.video-wrap video[data-src]').forEach(function(video) {
+                if (video.getAttribute('src')) return;
+                video.src = video.getAttribute('data-src');
+                video.removeAttribute('data-src');
+            });
+        }
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', function() { setTimeout(loadVideos, 800); });
+        } else {
+            setTimeout(loadVideos, 800);
+        }
+    })();
     /* 禁止视频下载 */
     (function() {
         // 阻止键盘下载快捷键 (Ctrl/Cmd+S, Ctrl/Cmd+Shift+S)
