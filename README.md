@@ -7,15 +7,13 @@
 ## 项目结构
 
 ```
-├── index.html                     # 简历主页面（纯 HTML + CSS，所有资源内联）
-├── images/                        # 图片资源
-│   ├── img_0.jpeg                 # 🚩 求职意向图标
-│   ├── img_1.png                  # 🎓 职业技能图标
-│   ├── img_2.png                  # 💼 工作经验图标
-│   ├── img_3.png                  # 📂 项目经验图标（同时也是头像照片）
-│   ├── img_4.png                  # 📝 自我评价图标
-│   └── img_5.png                  # 辅助图片
-├── x***.docx                      # 原始 Word 简历源文件（已移除，可从 WPS 重新导出）
+├── index.html                     # 简历主页面（纯 HTML + CSS + JS）
+├── images/                        # 图片与视频资源
+│   ├── photo_avatar.jpg           # 头像
+│   ├── 巨量信息流.mp4 / 巨量信息流_cover.jpg
+│   ├── 1_compressed.mp4 / 1_compressed_cover.jpg
+│   ├── 2_compressed.mp4 / 2_compressed_cover.jpg
+│   └── 3_compressed.mp4 / 3_compressed_cover.jpg
 ├── .nojekyll                      # 禁用 Jekyll 构建
 └── README.md                      # 本文件
 ```
